@@ -1,0 +1,9 @@
+# Original environment versions were not recorded; dependencies are intentionally unpinned.
+pandas
+numpy
+scipy
+matplotlib
+seaborn
+scikit-learn
+imbalanced-learn
+jupyterlab

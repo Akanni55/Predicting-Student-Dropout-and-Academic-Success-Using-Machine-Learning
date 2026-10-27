@@ -4,7 +4,7 @@ An exploratory Python machine learning project comparing support vector machines
 
 **Portfolio focus:** data preparation, exploratory analysis, classification, hyperparameter tuning, and critical interpretation of model performance.
 
-**Project status:** academic/portfolio analysis. The repository contains a notebook, its exported script, and a dataset; it does not contain a deployed prediction service or a validated student intervention system.
+**Project status:** academic/portfolio analysis. The repository contains a notebook and a dataset; it does not contain a deployed prediction service or a validated student intervention system.
 
 ## Project objective
 
@@ -23,15 +23,17 @@ A potential application is informing student-support research. No reduction in d
 
 ## Repository structure
 
-The project currently uses a flat structure:
+Files are grouped by purpose, with the project overview and environment setup at the root.
 
-| File | Purpose |
+| Path | Purpose |
 | --- | --- |
 | [README.md](README.md) | Project overview, methodology, recorded results, and reproduction guidance |
-| [Dropout Model implementations.ipynb](Dropout%20Model%20implementations.ipynb) | Main analysis, visualisations, model training, saved evaluation outputs, and subgroup diagnostics |
-| [student dropout.csv](student%20dropout.csv) | Input dataset loaded by both implementations |
+| [notebooks/student_dropout_analysis.ipynb](notebooks/student_dropout_analysis.ipynb) | Main analysis, visualisations, model training, saved evaluation outputs, and subgroup diagnostics |
+| [source/student_dropout.csv](source/student_dropout.csv) | Original input dataset; contents preserved |
+| [requirements.txt](requirements.txt) | Python dependencies for the notebook and JupyterLab; versions are not pinned |
+| [.gitignore](.gitignore) | Excludes local Python environments, caches, and notebook checkpoints |
 
-**Suggested review order:** read this README, inspect the notebook's preprocessing and model evaluation sections, then examine the script for the implementation details.
+**Suggested review order:** read this README, then inspect the notebook's preprocessing and model evaluation sections. The notebook is the analysis entry point.
 
 ## Data overview
 
@@ -141,23 +143,17 @@ Activate the environment:
 Install the packages imported by the code and a notebook interface:
 
 ```bash
-python -m pip install pandas numpy scipy matplotlib seaborn scikit-learn imbalanced-learn jupyterlab
+python -m pip install -r requirements.txt
 python -m jupyterlab
 ```
 
-Open `Dropout Model implementations.ipynb`, select the environment's Python kernel, restart it, and run all cells in order. Keep the CSV in the repository root and launch Jupyter from that directory because the data path is relative.
+Open `notebooks/student_dropout_analysis.ipynb`, select the environment's Python kernel, restart it, and run all cells in order. Keep the dataset at `source/student_dropout.csv`. The loader supports a working directory at either the repository root or `notebooks/`.
 
-Alternatively, run the exported script from the repository root:
-
-```bash
-python SCRIPT
-```
-
-The script is Python despite having no extension. It prints results and opens plots; an interactive local session may require closing plot windows to continue. `imbalanced-learn` is needed by the existing SMOTE import even though SMOTE is not used.
+`imbalanced-learn` is needed by the existing SMOTE import even though SMOTE is not used. Dependencies are unpinned because the original environment versions were not recorded.
 
 ### Colab option
 
-Open the notebook in Google Colab, upload `student dropout.csv` to the runtime working directory, install any missing dependencies, and run the cells in order. The runtime upload is temporary.
+Open `notebooks/student_dropout_analysis.ipynb` in Google Colab. In the runtime Files pane, create `/content/source/` and upload `student_dropout.csv` into it. Install any missing packages from `requirements.txt`, then run the notebook cells in order. The runtime upload is temporary.
 
 ### Expected outputs and checks
 
