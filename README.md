@@ -29,7 +29,6 @@ The project currently uses a flat structure:
 | --- | --- |
 | [README.md](README.md) | Project overview, methodology, recorded results, and reproduction guidance |
 | [Dropout Model implementations.ipynb](Dropout%20Model%20implementations.ipynb) | Main analysis, visualisations, model training, saved evaluation outputs, and subgroup diagnostics |
-| [SCRIPT](SCRIPT) | Python script exported from Colab; mirrors the notebook workflow and has no `.py` extension |
 | [student dropout.csv](student%20dropout.csv) | Input dataset loaded by both implementations |
 
 **Suggested review order:** read this README, inspect the notebook's preprocessing and model evaluation sections, then examine the script for the implementation details.
